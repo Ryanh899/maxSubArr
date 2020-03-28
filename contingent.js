@@ -21,14 +21,15 @@ var maxSubArray = function(nums) {
                     console.log(i+1)
                     console.log((minus+cutArr[i]))
                     console.log((positive+(minus+cutArr[i])))
+                    console.log((positive+(minus-cutArr[i])))
                     console.log((positive+minus))
                     minus += cutArr[i]; 
                     if ( minus > positive && Math.abs(cutArr[i]) >= Math.abs(cutArr[i+1]) ) {
                       break
                     } else if ( (i+1) != cutArr.length && Math.abs(cutArr[i]) >= cutArr[i+1]) {
 
-                        if ((positive+(minus-cutArr[i])) > high) {
-                            high = (positive + (minus-cutArr[i])); 
+                        if ((positive+(minus+cutArr[i])) > high) {
+                            high = (positive + (minus+cutArr[i])); 
                             break
                         }; 
 
@@ -52,4 +53,4 @@ var maxSubArray = function(nums) {
     return high;
 };
 
-console.log(maxSubArray([1, 2, -3, 3, 4, 5, 6]))
+console.log(maxSubArray([2,1, -1]))
